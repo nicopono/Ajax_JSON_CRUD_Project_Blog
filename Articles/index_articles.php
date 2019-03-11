@@ -28,10 +28,10 @@ $article_tables = PostAllarticle_table();
         <h2>New Article:</h2>
             <form>
                 Title:<br>
-                <input id="title" type="text" name="firstname">
+                <input id="title" type="text">
             <br><br>
                 Content:<br>
-                <textarea id="content" cols="45" rows="6"></textarea>
+                <textarea id="content" cols="25" rows="5"></textarea>
             <br><br>
 
                 <button type="button" onclick="create()">Create</button> 
@@ -46,7 +46,7 @@ $article_tables = PostAllarticle_table();
 
             <?php foreach ($article_tables as $key => $article_table): ?>
             <p>
-                <?php echo $article_table['titledB']." -- ".$article_table['contentdB'] ?>
+                <?php echo $article_table['titledB']."--".$article_table['contentdB'] ?>
                 
             </p>
             <?php endforeach; ?>
