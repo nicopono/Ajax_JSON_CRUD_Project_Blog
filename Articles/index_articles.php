@@ -19,7 +19,8 @@ $article_tables = PostAllarticle_table();
 
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="articles_ajax.js"></script>
 
 </head>
