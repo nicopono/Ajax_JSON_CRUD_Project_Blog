@@ -1,18 +1,6 @@
 <?php
 
-include_once('./config/config.php');
-
-function PostAllarticle_table() {
-
-    $connect = new PDO('mysql:dbname='.DBNAME, DBUSER, DBPWD);
-    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $request = $connect->prepare("SELECT * FROM article_table");
-
-    $request->execute();
-    return $request->fetchAll(PDO::FETCH_ASSOC);
-}
-$article_tables = PostAllarticle_table(); 
+// include_once ('C:\wamp64\www\GitHub\Project_Blog\Articles\index_articles.php');
 
 ?>
 
@@ -20,6 +8,9 @@ $article_tables = PostAllarticle_table();
 <!DOCTYPE html>
 <html>
 <head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="articles_ajax.js"></script>
 
@@ -35,23 +26,28 @@ $article_tables = PostAllarticle_table();
                 <textarea id="content" cols="25" rows="5"></textarea>
             <br><br>
 
-                <button type="button" onclick="create()">Create</button> 
-                <button type="button" onclick="update()">Update</button>
+                <button type="button" onclick="createArticle()">Create</button> 
+                <button type="button" onclick="updateArticle()">Update</button>
             </form>
 
     <div id="parentNewArticle">
         <h2>Articles:</h2>
 
+        <?php 
+        include_once ('C:\wamp64\www\GitHub\Project_Blog\Articles\controllers\show_all_articles.php'); ?>
 
-//*! ------Revoir FOREACH-------*/
 
-            <?php foreach ($article_tables as $key => $article_table): ?>
-            <p>
-                <?php echo $article_table['titledB']."--".$article_table['contentdB'] ?>
-                
-            </p>
-            <?php endforeach; ?>
-                
+
+        <?php foreach ($article_tables as $key => $article_x): ?>
+        <p>
+            <?php echo $article_x['titledB']."--".$article_x['contentdB'] ?>
+
+            <button onclick="readArticle()">Read</button>
+            <button onclick="deleteArticle()">Delete</button>
+            
+        </p>
+        <?php endforeach;  ?>
+            
     </div>
     </section>   
 </body>

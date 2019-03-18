@@ -3,7 +3,7 @@
 /*
  * Define Oject Class (OOP) because JS cannot understant Table oject
  */
-class Article
+class ArticleClass
 {
     public $id; 
     public $titledB;
