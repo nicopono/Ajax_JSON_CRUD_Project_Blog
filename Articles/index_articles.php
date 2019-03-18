@@ -42,7 +42,7 @@
         <p>
             <?php echo $article_x['titledB']."--".$article_x['contentdB'] ?>
 
-            <button onclick="readArticle()">Read</button>
+            <button onclick="readArticle(<?php echo $article_x['id'] ?>)">Read</button>
             <button onclick="deleteArticle()">Delete</button>
             
         </p>

@@ -19,8 +19,6 @@ function readArticle($identity) {
 
     $request = $connect->prepare("SELECT * FROM article_table WHERE id='$identity';");
 
-   
-
     $request->setFetchMode(PDO::FETCH_CLASS, 'ArticleClass');
     $request->execute();
     return $request->fetch();
